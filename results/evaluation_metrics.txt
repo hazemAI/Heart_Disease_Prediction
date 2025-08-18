@@ -1,0 +1,53 @@
+=== PCA Summary ===
+Optimal components (95% variance): 18
+Explained variance ratio (first 10):
+[0.1807, 0.0856, 0.0707, 0.0682, 0.0629, 0.059 , 0.0526, 0.0504, 0.0459,
+ 0.0446]
+
+=== Feature Selection: Top 10 Features (Combined Score) ===
+  feature  final_score
+ thal_3.0     0.922943
+   cp_4.0     0.880516
+   ca_0.0     0.734420
+ thal_7.0     0.685490
+  thalach     0.672024
+  oldpeak     0.654292
+    exang     0.549581
+      age     0.475819
+slope_1.0     0.466948
+     chol     0.435993
+
+=== Baseline Model Performance ===
+              Model  Accuracy  Precision   Recall  F1-Score  ROC AUC
+Logistic Regression  0.885246   0.838710 0.928571  0.881356 0.964286
+                SVM  0.901639   0.843750 0.964286  0.900000 0.959957
+      Random Forest  0.852459   0.806452 0.892857  0.847458 0.944264
+      Decision Tree  0.803279   0.722222 0.928571  0.812500 0.812771
+
+=== Unsupervised Learning Summary ===
+K-Means chosen k: 3
+Silhouette best k: 2
+Silhouette scores (k=2..10): k=2:0.142, k=3:0.091, k=4:0.098, k=5:0.093, k=6:0.102, k=7:0.104, k=8:0.101, k=9:0.107, k=10:0.124
+Cluster distribution (K-Means):
+0    116
+2    103
+1     84
+
+Cluster vs Target:
+target    0    1
+cluster         
+0        12  104
+1        64   20
+2        88   15
+
+=== Tuned Model Performance ===
+                           Model  Accuracy  Precision   Recall  F1-Score  ROC AUC
+                      SVM (Grid)  0.868852   0.833333 0.892857  0.862069 0.966450
+Logistic Regression (Randomized)  0.868852   0.833333 0.892857  0.862069 0.959957
+      Logistic Regression (Grid)  0.868852   0.833333 0.892857  0.862069 0.959957
+            Random Forest (Grid)  0.901639   0.866667 0.928571  0.896552 0.951299
+      Random Forest (Randomized)  0.885246   0.838710 0.928571  0.881356 0.950216
+                SVM (Randomized)  0.852459   0.806452 0.892857  0.847458 0.942641
+      Decision Tree (Randomized)  0.819672   0.793103 0.821429  0.807018 0.892316
+            Decision Tree (Grid)  0.819672   0.793103 0.821429  0.807018 0.892316
+

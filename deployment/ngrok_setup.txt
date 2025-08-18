@@ -1,0 +1,29 @@
+Ngrok setup for Streamlit (Windows) — v3, Port 8502
+
+1) Start Streamlit (bind broadly to avoid IPv6/localhost issues)
+   python -m streamlit run ui/app.py --server.port 8502 --server.address 0.0.0.0
+
+2) Authenticate ngrok (once)
+   ngrok config add-authtoken YOUR_NGROK_TOKEN
+
+3) Start the tunnel (force IPv4 target)
+   ngrok http http://127.0.0.1:8502
+
+4) Optional: fetch URL via local API
+   (Invoke-RestMethod http://127.0.0.1:4040/api/tunnels).tunnels `
+     | Where-Object {$_.proto -eq 'https'} `
+     | Select-Object -ExpandProperty public_url
+
+5) Stop
+   - Ctrl+C in the ngrok window to stop the tunnel
+   - Ctrl+C in the Streamlit window to stop the app
+
+Troubleshooting
+- ERR_NGROK_3200 (endpoint offline): you opened an old URL from a previous session. Use the current https URL shown in the ngrok console.
+- 502 / ERR_NGROK_8012: ensure Streamlit is running and target IPv4 on the correct port:
+  - App: 8502
+  - Tunnel target: http://127.0.0.1:8502 (avoid localhost/::1)
+- Port busy: change the port (e.g., 8503) in both commands.
+
+- ERR_NGROK_8012: usually IPv6 (::1) or wrong port. Ensure you:
+  - Run Streamlit on 8502 and use: ngrok http http://127.0.0.1:8502
