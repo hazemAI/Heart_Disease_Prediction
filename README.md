@@ -5,6 +5,10 @@ A complete ML pipeline on the UCI Heart Disease dataset: preprocessing, PCA, fea
 - Dataset: https://archive.ics.uci.edu/ml/datasets/heart+disease
 - App: `ui/app.py` (predicts heart-disease risk from 13 clinical features)
 
+## Demo
+
+https://github.com/user-attachments/assets/762154a9-070b-4335-8f40-a43b2167be64
+
 ## Project Structure
 ```
 .
@@ -98,5 +102,3 @@ See `results/evaluation_metrics.txt` for full details. Highlights:
 
 ## Acknowledgments
 - UCI Machine Learning Repository — Heart Disease dataset.
-
-## Link to Github Repository: https://github.com/hazemAI/Heart_Disease_Prediction
